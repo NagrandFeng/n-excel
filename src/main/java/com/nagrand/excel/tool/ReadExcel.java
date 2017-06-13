@@ -33,13 +33,15 @@ public class ReadExcel {
         this.sqlEntity = new SqlEntity();
     }
 
-    public void readeExcelGetSql(File file){
+    public void readeExcelGetSql() {
+
         long start = System.currentTimeMillis();
         initSqlData();
         long end = System.currentTimeMillis();
         System.out.println("initSqlData 耗费:"+(end-start)+"ms");
 
         start = System.currentTimeMillis();
+        File file = new File(ExcelProperties.getFileUrl());
         readExcel(file);
         end = System.currentTimeMillis();
         System.out.println("readExcel 耗费:"+(end-start)+"ms");
