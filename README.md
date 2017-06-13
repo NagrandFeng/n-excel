@@ -9,7 +9,7 @@
 ```sql
 update #{table_name} set #{set_map} where #{id} in ( #{id_list} )
 ```
-如果导出的数据特别多的情况下，那个where id in (*,*,*,*...)会变得很长，手写sql会累死的。就搞了个小Demo来读Excel并输出sql
+如果导出的数据特别多的情况下，那个where id in (id1,id2,id3,id4...)会变得很长，手写sql会累死的。就搞了段代码来读Excel并输出sql
 
 ## excel文件说明
 
@@ -45,3 +45,5 @@ readExcel.readeExcelGetSql();
 
 console中会输出sql的信息
 
+# 备注
+code updating...
