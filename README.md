@@ -37,7 +37,7 @@ set.valid.map={"valid1":"value1","valid3":"value3","valid2":"value2","valid4":"v
 file.url=E:\\jiaoyi\\sql_data.xlsx
 ```
 
-然后zhi
+然后在代码中调用ReadExcel的readeExcelGetSql
 ```java
 ReadExcel readExcel = new ReadExcel();
 readExcel.readeExcelGetSql();
