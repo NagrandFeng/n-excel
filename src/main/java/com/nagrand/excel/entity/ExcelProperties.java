@@ -19,7 +19,7 @@ public class ExcelProperties {
     /**
      * 字段名称
      */
-    private static String idValidName;
+    private static String idFieldName;
 
     /**
      * 数据库名.表名
@@ -29,7 +29,7 @@ public class ExcelProperties {
     /**
      * 字段名和字段值，json格式的字符串
      */
-    private static String validMap;
+    private static String fieldMap;
 
     /**
      * excel只取status=idStatus的数据
@@ -43,9 +43,9 @@ public class ExcelProperties {
         try {
             prop.load(in);
             tableName = parse(prop.getProperty("db.table").trim());
-            idValidName = parse(prop.getProperty("id.valid").trim());
+            idFieldName = parse(prop.getProperty("id.field").trim());
             idStatus = parse(prop.getProperty("id.status").trim());
-            validMap = parse(prop.getProperty("set.valid.map").trim());
+            fieldMap = parse(prop.getProperty("set.field.map").trim());
             fileUrl = parse(prop.getProperty("file.url").trim());
         } catch (IOException e) {
             log.error("ExcelProperties初始化异常",e);
@@ -61,16 +61,21 @@ public class ExcelProperties {
     }
 
 
-    public static void main(String[] args) {
-        System.out.println(ExcelProperties.getValidMap());
+
+    public static String getIdFieldName() {
+        return idFieldName;
     }
 
-    public static String getIdValidName() {
-        return idValidName;
+    public static void setIdFieldName(String idFieldName) {
+        ExcelProperties.idFieldName = idFieldName;
     }
 
-    public static void setIdValidName(String idValidName) {
-        ExcelProperties.idValidName = idValidName;
+    public static String getFieldMap() {
+        return fieldMap;
+    }
+
+    public static void setFieldMap(String fieldMap) {
+        ExcelProperties.fieldMap = fieldMap;
     }
 
     public static String getTableName() {
@@ -81,13 +86,6 @@ public class ExcelProperties {
         ExcelProperties.tableName = tableName;
     }
 
-    public static String getValidMap() {
-        return validMap;
-    }
-
-    public static void setValidMap(String validMap) {
-        ExcelProperties.validMap = validMap;
-    }
 
     public static String getIdStatus() {
         return idStatus;

@@ -10,10 +10,10 @@ import java.util.Map;
  */
 public class SqlEntity {
     private String tableName;
-    private String idValidName;
+    private String idFieldName;
     private List<Integer> idList;
     private Integer idStatus;
-    private Map<String,String> validMap;
+    private Map<String,String> fieldKVMap;
 
     public String getTableName() {
         return tableName;
@@ -23,12 +23,12 @@ public class SqlEntity {
         this.tableName = tableName;
     }
 
-    public String getIdValidName() {
-        return idValidName;
+    public String getIdFieldName() {
+        return idFieldName;
     }
 
-    public void setIdValidName(String idValidName) {
-        this.idValidName = idValidName;
+    public void setIdFieldName(String idFieldName) {
+        this.idFieldName = idFieldName;
     }
 
     public List<Integer> getIdList() {
@@ -39,12 +39,12 @@ public class SqlEntity {
         this.idList = idList;
     }
 
-    public Map<String, String> getValidMap() {
-        return validMap;
+    public Map<String, String> getFieldKVMap() {
+        return fieldKVMap;
     }
 
-    public void setValidMap(Map<String, String> validMap) {
-        this.validMap = validMap;
+    public void setFieldKVMap(Map<String, String> fieldKVMap) {
+        this.fieldKVMap = fieldKVMap;
     }
 
     public Integer getIdStatus() {

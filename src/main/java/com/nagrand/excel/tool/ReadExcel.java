@@ -1,8 +1,6 @@
 package com.nagrand.excel.tool;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.JSONPObject;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.nagrand.excel.entity.ExcelProperties;
@@ -56,14 +54,14 @@ public class ReadExcel {
 
     private void initSqlData(){
         sqlEntity.setTableName(ExcelProperties.getTableName());
-        sqlEntity.setIdValidName(ExcelProperties.getIdValidName());
+        sqlEntity.setIdFieldName(ExcelProperties.getIdFieldName());
         sqlEntity.setIdStatus(Integer.parseInt(ExcelProperties.getIdStatus()));
-        String mapJson = ExcelProperties.getValidMap();
+        String mapJson = ExcelProperties.getFieldMap();
         Map<String,String> validMap = Maps.newHashMap();
         if(mapJson != null && !mapJson.equals("")){
            validMap = JSON.parseObject(mapJson,HashMap.class);
         }
-        sqlEntity.setValidMap(validMap);
+        sqlEntity.setFieldKVMap(validMap);
 
     }
 
@@ -145,10 +143,10 @@ public class ReadExcel {
         String sql = "update #{table_name} set #{set_map} where #{id} in ( #{id_list} )";
         String sqlTableName = sqlEntity.getTableName();
         String sqlSetMap = "";
-        String sqlId = sqlEntity.getIdValidName();
+        String sqlId = sqlEntity.getIdFieldName();
         String sqlIdList = "";
 
-        Map<String,String> setMap = sqlEntity.getValidMap();
+        Map<String,String> setMap = sqlEntity.getFieldKVMap();
         List<Integer> idList = sqlEntity.getIdList();
 
         for (Map.Entry<String, String> entry : setMap.entrySet()) {
