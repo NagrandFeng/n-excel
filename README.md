@@ -46,4 +46,6 @@ readExcel.readeExcelGetSql();
 console中会输出sql的信息
 
 # 备注
+
+目前这部分代码只支持xlsx文件类型的excel文件读取
 code updating...
